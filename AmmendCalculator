@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+//ENE212-0146/2021 , OLWASI LINDA
+
+double add(double num1, double num2);
+double subtract(double num1, double num2);
+double multiply(double num1, double num2);
+double divide(double num1, double num2);
+int main() {
+    char operator;
+    double num1, num2, result;
+
+    printf("Enter two numbers: ");
+    scanf("%lf %lf", &num1, &num2);
+    printf("Enter operator (+, -, *, /): ");
+    scanf(" %c", &operator);
+    
+    switch(operator) {
+        case '+':
+            result = add(num1, num2);
+            break;
+        case '-':
+            result = subtract(num1, num2);
+            break;
+        case '*':
+            result = multiply(num1, num2);
+            break;
+        case '/':
+            if(num2 != 0) {
+                result = divide(num1, num2);
+            } else {
+                printf("Error: Division by zero is not allowed.\n");
+                return 1; // Exit 
+            }
+            break;
+        default:
+            printf("Error: Invalid operator.\n");
+            return 1; // Exit 
+    }
+    printf("Result: %.2f\n", result);
+    return 0; // successful Exit 
+}
+double add(double num1, double num2) {
+    return num1 + num2;
+}
+double subtract(double num1, double num2) {
+    return num1 - num2;
+}
+double multiply(double num1, double num2) {
+    return num1 * num2;
+}
+double divide(double num1, double num2) {
+    return num1 / num2;
+}
