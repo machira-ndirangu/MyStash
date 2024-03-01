@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int bubbleSort(int arr[10], int n) {
+    int i, j, marks;
+    for (i = 0; i < n; i++) 
+    {
+        for ( j < i =1 ;j<n ; j++)
+         {
+            if (arr[j] > arr[j+1]) 
+            {
+                marks = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = marks;
+            }
+        }
+    }
+
+}
+
+int main() {
+
+    int reference[10],i,n,value;
+    int position = 5;
+    value= 5;
+    int arr[9]={13,9,8,7,6,4,3,2,1};
+    n = 10;
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    bubbleSort(arr, n);
+
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+
+    for(int i=0;i<n;i++){
+        reference[i] = arr[i];
+    }
+
+    // insert without replacing -- shift elements
+    for(i=0;i<n;i++){
+        if(i == position){
+            arr[i] = value;
+        }
+        else if(i > position){
+            arr[i] = reference[i-1];
+        }
+    }
+
+     printf("\nResultant array after adding is\n");
+
+     for(i=0;i<=n;i++){
+         printf("%d, ", arr[i]);
+     }
+
+    //  Delete the element
+     for(i=0;i<n;i++){
+        if(i >= position){
+            arr[i] = arr[i+1];
+        }
+         else if(i == n){
+           arr[i] = 0;
+         }
+    }
+
+    printf("\nResultant array after removing is\n");
+
+     for(i=0;i<=n;i++){
+         printf("%d, ", arr[i]);
+     }
+
+     return 0;
+}
