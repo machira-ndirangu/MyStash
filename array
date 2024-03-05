@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//OLWASI LINDA ENE212-0146/2021
 
 int bubbleSort(int arr[10], int n) {
     int i, j, marks;
